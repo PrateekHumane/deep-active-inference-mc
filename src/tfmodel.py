@@ -166,18 +166,18 @@ class ActiveInferenceModel:
 
 
     def save_weights(self, folder_chp):
-        self.model_down.qs_net.save_weights(folder_chp+'/checkpoint_qs')
-        self.model_down.po_net.save_weights(folder_chp+'/checkpoint_po')
+        self.model_down.qs_net.save_weights(folder_chp+'/checkpoint_qs.weights.h5')
+        self.model_down.po_net.save_weights(folder_chp+'/checkpoint_po.weights.h5')
         if self.pi_dim > 0:
-            self.model_top.qpi_net.save_weights(folder_chp+'/checkpoint_qpi')
-            self.model_mid.ps_net.save_weights(folder_chp+'/checkpoint_ps')
+            self.model_top.qpi_net.save_weights(folder_chp+'/checkpoint_qpi.weights.h5')
+            self.model_mid.ps_net.save_weights(folder_chp+'/checkpoint_ps.weights.h5')
 
     def load_weights(self, folder_chp):
-        self.model_down.qs_net.load_weights(folder_chp+'/checkpoint_qs')
-        self.model_down.po_net.load_weights(folder_chp+'/checkpoint_po')
+        self.model_down.qs_net.load_weights(folder_chp+'/checkpoint_qs.weights.h5')
+        self.model_down.po_net.load_weights(folder_chp+'/checkpoint_po.weights.h5')
         if self.pi_dim > 0:
-            self.model_top.qpi_net.load_weights(folder_chp+'/checkpoint_qpi')
-            self.model_mid.ps_net.load_weights(folder_chp+'/checkpoint_ps')
+            self.model_top.qpi_net.load_weights(folder_chp+'/checkpoint_qpi.weights.h5')
+            self.model_mid.ps_net.load_weights(folder_chp+'/checkpoint_ps.weights.h5')
 
     def save_all(self, folder_chp, stats, script_file="", optimizers={}):
         self.save_weights(folder_chp)

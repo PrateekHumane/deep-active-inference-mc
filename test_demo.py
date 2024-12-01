@@ -32,9 +32,10 @@ if True:
     config.gpu_options.allow_growth = True
     session = InteractiveSession(config=config)
 
-from game_environment import Game
+from src.game_environment import Game
 import src.util as u
-import src.tfutils as tfu, mcts
+# import src.tfutils as tfu, mcts
+import src.mcts as mcts
 from src.tfmodel import ActiveInferenceModel
 
 params = mcts.MCTS_Params()

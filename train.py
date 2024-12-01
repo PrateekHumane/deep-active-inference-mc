@@ -138,8 +138,8 @@ for epoch in range(start_epoch, epochs + 1):
     stats['var_c'].append(var_c)
     stats['var_d'].append(var_d)
     stats['TC'].append(np.mean(total_correlation(qs1.numpy())))
-    stats['learning_rate'].append(optimizers['down'].lr.numpy())
-    stats['current_lr'].append(optimizers['down']._decayed_lr(tf.float32).numpy())
+    stats['learning_rate'].append(optimizers['down'].learning_rate.numpy())
+    stats['current_lr'].append(optimizers['down']._get_current_learning_rate().numpy())
 
     generate_traversals(model=model, s_dim=s_dim, s_sample=s0, S_real=S0_real,
                         filenames=[folder+'/traversals_at_epoch_{:04d}.png'.format(epoch)], colour=False)
